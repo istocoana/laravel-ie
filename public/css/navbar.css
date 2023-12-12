@@ -1,0 +1,61 @@
+.navbar {
+  background-color: mediumpurple;
+  width: 100%;
+}
+
+.navbar ul {
+  width: 100%;
+  height: 60px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+  gap: 100px;
+}
+
+.navbar li {
+  padding: 10px 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.navbar form {
+  background-color: transparent;
+}
+.navbar button {
+  color: white;
+  background-color: transparent;
+}
+
+
+.home-page-style {
+  background-color: transparent;
+  width: 100%;
+}
+
+.home-page-style ul {
+  height: 60px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: space-around;
+}
+
+.home-page-style li { 
+  padding: 10px 20px;
+}
+
+.home-page-style a { 
+  color: white;
+}

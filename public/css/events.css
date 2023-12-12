@@ -1,0 +1,132 @@
+.container h2 {
+  color: mediumpurple;
+  font-weight: bolder;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+a.addevent {
+  text-decoration: none;
+  color: #0b2e13;
+  font-weight: bold;
+  text-align: start;
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.event {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 30px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 10px;
+}
+
+.event.photo {
+  width: 25%;
+}
+
+.event img {
+  width: 250px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.details a {
+  color: mediumpurple;
+  text-decoration: none;
+}
+
+.details a:hover { 
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.for-clients {
+  display: flex;
+  color: indianred;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.button {
+  text-decoration: none;
+  background-color: mediumpurple;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: mediumorchid;
+}
+
+.line { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-number {
+  padding: 8px;
+  width: 30px;
+  height: 30px;
+}
+
+.input-number {
+  width: 50px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  width: 120px; 
+  margin-bottom: 10px;
+}
+
+.btn-number[data-type="minus"] {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-number[data-type="plus"] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

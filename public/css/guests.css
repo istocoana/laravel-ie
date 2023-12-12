@@ -1,0 +1,81 @@
+.container h2 {
+  color: mediumpurple;
+  font-weight: bolder;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+a.add {
+  text-decoration: none;
+  color: #0b2e13;
+  font-weight: bold;
+  text-align: start;
+}
+
+.guests {
+  display: flex;
+  flex-direction:column;
+  gap: 10px;
+  padding: 20px;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+.guest {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 20px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+img {
+  width: 200px;
+}
+
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  gap: 10px;
+}
+
+.details a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.details a:hover {
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+a.view {
+  text-decoration: none;
+  color: mediumpurple;
+}
+
+a.view:hover {
+  text-decoration: underline;
+  color: mediumorchid;
+}
