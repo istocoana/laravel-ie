@@ -26,8 +26,31 @@
                 </div>   
                 <p>{{ $event->descriere }}</p>
                 <p><strong>Bilete Disponibile:</strong> {{ $event->bilete_disponibile }}</p>
-                <p><strong>Pret:</strong> {{ $event->pret }}</p>    
-                <h5>Sponsori</h5>
+                <p><strong>Pret:</strong> {{ $event->pret }}</p>   
+
+                <p> <strong> Sponsori: </strong></p>
+                @if (isset($event->sponsori) && $event->sponsori->count() > 0)
+                    <ul>
+                        @foreach ($event->sponsori as $sponsor)
+                            <li>{{ $sponsor->nume }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>Niciun sponsor asociat acestui eveniment.</p>
+                @endif
+
+                <p> <strong> Speakeri: </strong></p>
+                @if (isset($event->sponsori) && $event->sponsori->count() > 0)
+                    <ul>
+                        @foreach ($event->sponsori as $sponsor)
+                            <li>{{ $sponsor->nume }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    <p>Niciun sponsor asociat acestui eveniment.</p>
+                @endif
+
+                <p> <strong> Sponsori: </strong></p>
                 @if (isset($event->sponsori) && $event->sponsori->count() > 0)
                     <ul>
                         @foreach ($event->sponsori as $sponsor)

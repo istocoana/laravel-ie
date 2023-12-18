@@ -105,16 +105,8 @@ class ComenziController extends Controller
 
             CosCumparaturi::where('user_id', $user->id)->delete();
 
-            try {
-                $ultimaComanda = IstoricComenzi::where('user_id', $user->id)->latest()->first();
-                if ($ultimaComanda) {
-                    Mail::to($user->email)->send(new DetaliiComandaMail($ultimaComanda));
-                    return redirect()->route('success-page');
-                }
-            } catch (\Exception $e) {
-                Log::error('Eroare la trimiterea e-mailului: ' . $e->getMessage());
-                return redirect()->back()->with('error', 'A apărut o eroare la trimiterea e-mailului către utilizator!');
-            }
+            return redirect()->route('success-page');
+
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }

@@ -114,3 +114,4 @@ Route::middleware('client')->group(function () {
 
 
 
+Route::post('/procesare-plata', [ComenziController::class, 'procesarePlata'])->name('procesare-plata');

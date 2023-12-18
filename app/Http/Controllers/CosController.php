@@ -27,19 +27,19 @@ class CosController extends Controller
             ->first();
 
 
-            if ($existingCartItem) {
-                session()->flash('error', 'Nu poți lua bilete de la evenimente diferite.');
-                return redirect()->route('events.index')->with('error', 'Există deja un alt eveniment în coș.');
-            }
-        
-            $cosCumparaturi = CosCumparaturi::updateOrCreate(
-                ['user_id' => auth()->id(), 'event_id' => $event_id],
-                ['nr_bilete_selectate' => DB::raw("nr_bilete_selectate + " . (int)$request->numar_bilete)]
-            );
-        
-            session()->flash('success', 'Eveniment adăugat în coș cu succes.');
-            return redirect()->route('events.index')->with('success', 'Eveniment adăugat în coș cu succes');
+        if ($existingCartItem) {
+            session()->flash('error', 'Nu poți lua bilete de la evenimente diferite.');
+            return redirect()->route('events.index')->with('error', 'Există deja un alt eveniment în coș.');
         }
+    
+        $cosCumparaturi = CosCumparaturi::updateOrCreate(
+            ['user_id' => auth()->id(), 'event_id' => $event_id],
+            ['nr_bilete_selectate' => DB::raw("nr_bilete_selectate + " . (int)$request->numar_bilete)]
+        );
+    
+        session()->flash('success', 'Eveniment adăugat în coș cu succes.');
+        return redirect()->route('events.index')->with('success', 'Eveniment adăugat în coș cu succes');
+    }
     
 
     public function vizualizeazaCos(Request $request)
