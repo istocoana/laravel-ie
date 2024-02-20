@@ -9,23 +9,12 @@
 <div class='container'>
     <div class="line">
         <h2>Evenimente</h2>
-        @if(session()->has('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div>
-        @endif
-
-        @if(session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session()->get('error') }}
-            </div>
-        @endif
 
         @if (Auth::check() && Auth::user()->isAdmin())   
             <a href="{{ route('events.create') }}" class="button">Adăugare eveniment nou</a>
         @elseif (Auth::check() && !Auth::user()->isAdmin())
         <a href="{{ route('cos.vizualizeazaCos') }}" class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="bi bi-cart"></i>
             <?php
             $totalBilete = App\Helpers\Helpers::getTotalBileteInCos(auth()->id());
             ?>
@@ -97,7 +86,7 @@
                         +
                     </button>
                 </div>
-                <button type="submit" class="btn btn-primary">Adaugă în coș</button>
+                <button type="submit" class="btn btn-sm btn-secondary">Cumpara bilete</button>
             </form>
             
             @endif

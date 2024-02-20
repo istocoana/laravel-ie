@@ -11,6 +11,8 @@ use App\Mail\EventsMailer;
 use App\Models\Speakers;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Brian2694\Toastr\Facades\Toastr;
+
 
 class EventsController extends Controller
 {
@@ -110,8 +112,12 @@ class EventsController extends Controller
             'bilete_disponibile' => 'required|integer|min:0',
             'pret' => 'required|numeric|min:0',
             'image_path' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            ], [
+                'image_path.image' => 'Fișierul încărcat trebuie să fie de tip imagine.',
+                'image_path.mimes' => 'Formatul fișierului trebuie să fie jpeg, png, jpg sau gif.',
+                'image_path.max' => 'Fișierul încărcat nu poate depăși 2048 KB.'
         ]);
-
+   
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $image->getClientOriginalName();

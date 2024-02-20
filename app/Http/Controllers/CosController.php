@@ -9,6 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Brian2694\Toastr\Facades\Toastr;
 
 class CosController extends Controller
 {
@@ -37,8 +38,7 @@ class CosController extends Controller
             ['nr_bilete_selectate' => DB::raw("nr_bilete_selectate + " . (int)$request->numar_bilete)]
         );
     
-        session()->flash('success', 'Eveniment adăugat în coș cu succes.');
-        return redirect()->route('events.index')->with('success', 'Eveniment adăugat în coș cu succes');
+        return redirect()->route('events.index')->with('success', 'Eveniment adăugat în coș cu succes!');
     }
     
 
@@ -61,24 +61,19 @@ class CosController extends Controller
         $event = Event::findOrFail($request->event_id);
 
         if ($request->actiune === 'adauga') {
-            $request->validate([
-                'numar_bilete' => 'required|integer|min:1|max:' . ($event->bilete_disponibile - $cosItem->nr_bilete_selectate),
-            ]);
-
             $cosItem->update(['nr_bilete_selectate' => DB::raw("nr_bilete_selectate + " . (int)$request->numar_bilete)]);
         } elseif ($request->actiune === 'scade') {
-            $request->validate([
-                'numar_bilete' => 'required|integer|min:1|max:' . $cosItem->nr_bilete_selectate,
-            ]);
-
             $cosItem->update(['nr_bilete_selectate' => DB::raw("nr_bilete_selectate - " . (int)$request->numar_bilete)]);
-
-            if ($cosItem->nr_bilete_selectate <= 0) {
-                $cosItem->delete();
-            }
         }
-
+        
+        $cosItem->refresh();
+        
+        if ($cosItem->nr_bilete_selectate <= 0) {
+            $cosItem->delete();
+        }
+        
         return redirect()->route('cos.vizualizeazaCos')->with('success', 'Coșul a fost actualizat cu succes');
+        
     }
 
     public function stergeEveniment(Request $request)

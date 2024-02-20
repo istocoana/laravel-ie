@@ -18,6 +18,7 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Log;
+use Brian2694\Toastr\Facades\Toastr;
 
 
 class ComenziController extends Controller

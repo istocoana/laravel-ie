@@ -199,7 +199,10 @@ return [
         App\Providers\HelperServiceProvider::class,
 
         Barryvdh\DomPDF\ServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        Brian2694\Toastr\ToastrServiceProvider::class
+
     ],
 
     /*

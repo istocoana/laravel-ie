@@ -130,3 +130,26 @@ a.addevent {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+
+.cart-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-cos-numar {
+  position: absolute;
+  top: -1px;
+  right: -10px;
+  padding: 1px 5px;
+  border-radius: 50%;
+  background-color: orange;
+  color: white;
+  font-size: 12px;
+}
+
+.bi-cart { 
+  color:rgb(30, 30, 30);
+  font-size: 30px;
+  font-weight: bold;
+}

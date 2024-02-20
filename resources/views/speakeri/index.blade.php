@@ -1,29 +1,27 @@
-@extends ("layouts/main")
+@extends("layouts/main")
 
 @push('styles')
-    <link href="{{ asset('css/guests.css') }}" rel="stylesheet">
+<link href="{{ asset('css/guests.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
-    <div class="container">
-        <div class="guests">
-            <h2>Listă Speakeri</h2>
-            @if (Auth::check() && Auth::user()->isAdmin())
-                <a href="{{ route('speakeri.create') }}" class="button">Adaugă Speakeri</a>
-            @endif
-            @foreach ($speakeri as $speaker)
-                <div class="guest">
-                    <div class="photo">
-                        <img src='images/speaker.jpg' alt='partener'>
-                    </div>
-                    <div class="details">
-                        <p> {{ $speaker->nume }} </p>
-                    </div>
-                    <div class="actions">
-                        <a href="{{ route('speakeri.show', ['speaker_id' => $speaker->speaker_id]) }}">Detalii</a>
-                    </div>
+<div class="container mt-5">
+    <h2 class="mb-4">Listă Speakeri</h2>
+    @if (Auth::check() && Auth::user()->isAdmin())
+    <a href="{{ route('speakeri.create') }}" class="btn btn-primary mb-3">Adaugă Speakeri</a>
+    @endif
+    <div class="row">
+        @foreach ($speakeri as $speaker)
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="{{ asset('images/speaker.jpg') }}" class="card-img-top" alt="{{ $speaker->nume }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $speaker->nume }}</h5>
+                    <a href="{{ route('speakeri.show', ['speaker_id' => $speaker->speaker_id]) }}" class="btn btn-sm btn-secondary">Detalii</a>
                 </div>
-            @endforeach
+            </div>
         </div>
+        @endforeach
     </div>
+</div>
 @endsection
