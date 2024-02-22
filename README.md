@@ -43,7 +43,7 @@ The main features of the website include:
 7. **Mail Server for Notifications:**
    - A server for sending email notifications has been set up, enhancing communication with participants.
 
-Completed as part of the Artificial Intelligence course at the Faculty of Economic Sciences and Business Management, Babes Bolyai University.
+Completed as part of the _Design and development of websites and web portals_ course at the Faculty of Economic Sciences and Business Management, Babes Bolyai University.
 
 
 
